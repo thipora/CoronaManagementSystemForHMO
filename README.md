@@ -1,0 +1,2 @@
+# CoronaManagementSystemForHMO
+מערכת לניהול נתונים
