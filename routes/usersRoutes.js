@@ -1,13 +1,16 @@
+const userModel = require("../models/userModel");
+
 const router = require("express").Router();
 
-router.get("/", (req, res) => {
-  res.send("Let's build a CRUD API!");
+router.get("/", async(req, res) => {
+  let data = await userModel.find({});
+  res.json("user work" + data + "finishhh");
 });
-router.get("/", (req, res) => {
-  res.send("Let's build a CRUD API!");
-});
-router.get("/", (req, res) => {
-  res.send("Let's build a CRUD API!");
+
+router.post("/", async(req, res) => {
+  let user = new userModel(req.body);
+  await user.save();
+  res.json(user);
 });
 
 module.exports = router;
