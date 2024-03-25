@@ -1,16 +1,13 @@
-const userModel = require("../models/userModel");
+const users = require("../controllers/users");
+
 
 const router = require("express").Router();
 
-router.get("/", async(req, res) => {
-  let data = await userModel.find({});
-  res.json("user work" + data + "finishhh");
-});
+router.get("/", users.findAllUsers);
 
-router.post("/", async(req, res) => {
-  let user = new userModel(req.body);
-  await user.save();
-  res.json(req.body + "            jjjj          " + user);
-});
+
+router.get("/:userId", users.findUserById);
+
+router.post("/", users.createUser);
 
 module.exports = router;
