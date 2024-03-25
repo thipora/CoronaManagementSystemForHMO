@@ -8,6 +8,6 @@ router.get("/", vccinations.findAllVaccinations);
 
 // router.get("/:userId", vccinations.findvccinationsById);
 
-router.post("/", vccinations.createvccination);
+router.post("/", vccinations.createVaccination);
 
 module.exports = router;

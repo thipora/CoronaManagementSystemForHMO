@@ -1,4 +1,4 @@
-const CoronaPatient = require('../models/coronaModel');
+const CoronaPatient = require('../models/coronaPatientModel');
 
 
 const createCoronaPatient = async (req, res) => {

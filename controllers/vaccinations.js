@@ -2,6 +2,12 @@ const Vaccination = require('../models/vaccinationModel');
 
 const createVaccination = async (req, res) => {
   try{
+    if(req.body==undefined){
+      req.body = {
+        "vaccineDate": "2016-02-28",
+        "manufacturer": "לא הצליח באסה",
+        "userId": 326444387}
+    }
     const vaccination = new Vaccination({
         vaccineDate: req.body.vaccination,
         manufacturer: req.body.manufacturer,

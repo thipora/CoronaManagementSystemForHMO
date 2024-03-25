@@ -9,9 +9,10 @@ const VaccinesSchema = new Schema({
         required: true,
         validate: {
             validator: async function(userId) { 
-                const users = await Vaccines.find({ userId: userId });
+                // const users = await Vaccines.find({ userId: userId });
                 const user = await User.find({ id: userId });
-                return !!user || users.length > 4;
+                return !!user;
+                // return !!user || users.length > 4;
             },
             message: 'Invalid user ID'
         }
