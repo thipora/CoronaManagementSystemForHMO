@@ -10,7 +10,7 @@ router.get("/", async(req, res) => {
 router.post("/", async(req, res) => {
   let user = new userModel(req.body);
   await user.save();
-  res.json(user);
+  res.json(req.body + "            jjjj          " + user);
 });
 
 module.exports = router;
