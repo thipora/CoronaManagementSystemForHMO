@@ -10,11 +10,11 @@ const AddressSchema = new Schema({
 const UserSchema = new Schema({
     firstName: { type: String, required: true, minlength: 2, maxlength: 20 },
     lastName: { type: String, required: true, minlength: 2, maxlength: 20 },
-    id: { type: Number, required: true, unique: true, min: 100000000, max: 999999999 },
+    id: { type: Number, required: true, unique: true, min: 10000000, max: 999999999 },
     address: { type: AddressSchema, required: true },
     dateOfBirth: { type: Date, required: true, max: Date.now() },
     phone: { type: Number, required: true, min: 1000000, max: 999999999 },
-    mobile: { type: Number, min: 100000000, max: 999999999 }
+    mobile: { type: Number, min: 1000000, max: 999999999 }
 });
 
 const userModel = mongoose.model('Users', UserSchema);

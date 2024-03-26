@@ -1,7 +1,6 @@
 const usersRoutes = require("./routes/usersRoutes");
-// const vaccinationsRoutes = require("./routes/vaccinationsRoutes")
-// const coronaPatientsRoutes = require("./routes/coronaPatientsRoutes")
-// const db = require("./db/mongoConnect");
+const vaccinationsRoutes = require("./routes/vaccinationsRoutes")
+const coronaPatientsRoutes = require("./routes/coronaPatientsRoutes")
 require("./db/mongoConnect");
 
 
@@ -12,8 +11,8 @@ const app = express();
 const PORT = 8000;
 
 app.use("/users", usersRoutes)
-// app.use("/vaccinations", vaccinationsRoutes)
-// app.use("/coronaPatients", coronaPatientsRoutes)
+app.use("/vaccinations", vaccinationsRoutes)
+app.use("/coronaPatients", coronaPatientsRoutes)
 
 
 app.listen(PORT, async () => {

@@ -8,7 +8,7 @@ const VaccinesSchema = new Schema({
         type: Number,
         required: true,
         validate: {
-            validator: async function(userId) { 
+            validator: async function() { 
                 // const users = await Vaccines.find({ userId: userId });
                 const user = await User.find({ id: userId });
                 return !!user;
