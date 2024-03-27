@@ -1,8 +1,8 @@
-const Member = require('../models/memberModel');
+import memberModel from'../models/memberModel.js';
 
 const createMember = async (req, res) => {
   try{
-    const member = new Member({
+    const member = new memberModel({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       id: req.body.id,
@@ -21,9 +21,9 @@ const createMember = async (req, res) => {
 const findMemberById = async (req, res) => {
   const memberId = req.params.memberId;
   try {
-    const member = await Member.find({id: memberId});
+    const member = await memberModel.find({id: memberId});
     if (!member) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: 'member not found' });
     }
     res.json(member);
   } catch (error) {
@@ -33,11 +33,11 @@ const findMemberById = async (req, res) => {
 
 const findAllMember = async (req, res) => {
   try {
-    const members = await Member.find();
+    const members = await memberModel.find();
     res.json(members);
   } catch (error) {
     res.status(500).json({ message: 'Server Error' });
   }
 };
 
-module.exports = { createMember, findMemberById, findAllMember };
+export { createMember, findMemberById, findAllMember };

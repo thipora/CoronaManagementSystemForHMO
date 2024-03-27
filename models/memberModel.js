@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const AddressSchema = new Schema({
@@ -8,19 +8,18 @@ const AddressSchema = new Schema({
 })
 
 const MemberSchema = new Schema({
-    _id: { type: mongoose.Types.ObjectId, required: true, min: 10000000, max: 999999999},
     firstName: { type: String, required: true, minlength: 2, maxlength: 20 },
     lastName: { type: String, required: true, minlength: 2, maxlength: 20 },
+    id: { type: Number, required: true, min: 10000000, max: 999999999},
     address: { type: AddressSchema, required: true },
     dateOfBirth: { type: Date, required: true, max: Date.now() },
     phone: { type: Number, required: true, min: 1000000, max: 999999999 },
     mobile: { type: Number, min: 1000000, max: 999999999 }
 });
 
-const userModel = mongoose.model('Members', MemberSchema);
+const memberModel = mongoose.model('members', MemberSchema);
 
-module.exports = userModel;
-
+export default memberModel;
 
 
 

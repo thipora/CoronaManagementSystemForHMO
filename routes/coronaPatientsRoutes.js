@@ -1,12 +1,14 @@
-const coronaPatients = require("../controllers/coronaPatients");
+import {findAllCoronaPatients, findCoronaPatientsById, createCoronaPatient} from "../controllers/coronaPatient.js";
 
-const router = require("express").Router();
+import express from "express";
 
-router.get("/", coronaPatients.findAllCoronaPatients);
+const router = express.Router();
+
+router.get("/", findAllCoronaPatients);
 
 
-router.get("/:coronaPatientId", coronaPatients.findCoronaPatientsById);
+router.get("/:coronaPatientId", findCoronaPatientsById);
 
-router.post("/", coronaPatients.createCoronaPatient);
+router.post("/", createCoronaPatient);
 
-module.exports = router;
+export default router;

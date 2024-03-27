@@ -1,42 +1,33 @@
-// const mongoose = require('mongoose');
+// import mongoose from 'mongoose';
 
-// // יצירת חיבור למסד הנתונים
-// mongoose.connect('mongodb+srv://tz0556776105:5ZpRdMRIdy40jepC@cluster.l47zh4d.mongodb.net/');
+// main().catch(err => console.log(err));
 
-// // קבלת החיבור הפעיל
-// const db = mongoose.connection;
+// async function main() {
+// await mongoose.connect('mongodb+srv://tz0556776105:5ZpRdMRIdy40jepC@cluster.l47zh4d.mongodb.net/koronaHMO');
+//   console.log("mongos conect");
+// }
 
-// // טיפול בשגיאת חיבור
-// db.on('error', console.error.bind(console, 'connection error:'));
+import mongoose from 'mongoose';
 
-// // טיפול בהתחברות מוצלחת
-// db.once('open', () => {
-//     console.log("mongo connected");
-// });
+const dbURI = 'mongodb+srv://tz0556776105:5ZpRdMRIdy40jepC@cluster.l47zh4d.mongodb.net/koronaHMO';
 
-// module.exports = db;
-
-
-//מה שהיה לפני לא יודעת מתי.....
-
-// const db = mongoose
-//   .connect('mongodb+srv://tz0556776105:5ZpRdMRIdy40jepC@cluster.l47zh4d.mongodb.net/', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then(() => {
-//     console.log("Connected to MongoDB");
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-
-const mongoose = require('mongoose');
-
-main().catch(err => console.log(err));
-
-async function main() {
-await mongoose.connect('mongodb+srv://tz0556776105:5ZpRdMRIdy40jepC@cluster.l47zh4d.mongodb.net/koronaHMO');
-  console.log("mongos conect");
+async function connectToDatabase() {
+    try {
+        await mongoose.connect(dbURI);
+        console.log("Connected to MongoDB");
+    } catch (error) {
+        console.error("Failed to connect to MongoDB:", error);
+    }
 }
+
+async function disconnectFromDatabase() {
+    try {
+        await mongoose.disconnect();
+        console.log("Disconnected from MongoDB");
+    } catch (error) {
+        console.error("Failed to disconnect from MongoDB:", error);
+    }
+}
+
+export {connectToDatabase, disconnectFromDatabase}
 

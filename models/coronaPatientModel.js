@@ -1,12 +1,12 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const CoronaPatientSchema = new Schema({
-    memberId: { type: mongoose.Schema.Types.ObjectId, ref: 'Members', required: true, unique: true },
+    memberId: { type: mongoose.Schema.Types.ObjectId, ref: 'members', required: true, unique: true },
     positiveTestDate: {type: Date, required: true, max: Date.now()},
     recoveryDate: {type: Date, max: Date.now()}
 })
 
-const coronaPatientModel = mongoose.model('CoronaPatients', CoronaPatientSchema);
+const coronaPatientModel = mongoose.model('coronaPatients', CoronaPatientSchema);
 
-module.exports = coronaPatientModel;
+export default coronaPatientModel;

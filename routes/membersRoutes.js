@@ -1,11 +1,13 @@
-const members = require("../controllers/members");
+import  { createMember, findMemberById, findAllMember } from "../controllers/members.js";
 
-const router = require("express").Router();
+import express from "express";
 
-router.get("/", members.findAllUsers);
+const router = express.Router();
 
-router.get("/:memberId", members.findUserById);
+router.get("/", findAllMember);
 
-router.post("/", members.createUser);
+router.get("/:memberId", findMemberById);
 
-module.exports = router;
+router.post("/", createMember);
+
+export default router;

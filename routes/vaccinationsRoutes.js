@@ -1,13 +1,14 @@
-const vccinations = require("../controllers/vaccinations");
+import { createVaccination, findVaccinationById, findAllVaccinations } from "../controllers/vaccinations.js";
+
+import express from "express";
+
+const router = express.Router();
+
+router.get("/", findAllVaccinations);
 
 
-const router = require("express").Router();
+router.get("/:memberId", findVaccinationById);
 
-router.get("/", vccinations.findAllVaccinations);
+router.post("/", createVaccination);
 
-
-router.get("/:vaccinationId", vccinations.findVaccinationById);
-
-router.post("/", vccinations.createVaccination);
-
-module.exports = router;
+export default router;

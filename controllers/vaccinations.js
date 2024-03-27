@@ -1,4 +1,4 @@
-const Vaccination = require('../models/vaccinationModel');
+import Vaccination from'../models/vaccinationModel.js';
 
 const createVaccination = async (req, res) => {
   try{
@@ -17,9 +17,9 @@ const createVaccination = async (req, res) => {
 
 
 const findVaccinationById = async (req, res) => {
-  const vaccinationId = req.params.vaccinationId;
+  const memberId = req.params.memberId;
   try {
-    const vaccination = await Vaccination.find({_id: vaccinationId});
+    const vaccination = await Vaccination.find({memberId: memberId});
     if (!vaccination) {
       return res.status(404).json({ message: 'vaccination not found' });
     }
@@ -40,4 +40,4 @@ const findAllVaccinations = async (req, res) => {
   }
 };
 
-module.exports = { createVaccination, findVaccinationById, findAllVaccinations };
+export { createVaccination, findVaccinationById, findAllVaccinations };
