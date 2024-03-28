@@ -12,7 +12,7 @@ app.use(express.json());
 import cors from 'cors';
 app.use(cors());
 
-const PORT = 3000;
+const PORT = 8000;
 
 connectToDatabase();
 

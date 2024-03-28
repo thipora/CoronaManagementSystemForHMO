@@ -3,9 +3,9 @@ import memberModel from'../models/memberModel.js';
 const createMember = async (req, res) => {
   try{
     const member = new memberModel({
+      _id: req.body._id,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      id: req.body.id,
       address: req.body.address,
       dateOfBirth: req.body.dateOfBirth,
       phone: req.body.phone,
@@ -21,7 +21,7 @@ const createMember = async (req, res) => {
 const findMemberById = async (req, res) => {
   const memberId = req.params.memberId;
   try {
-    const member = await memberModel.find({id: memberId});
+    const member = await memberModel.find({_id: memberId});
     if (!member) {
       return res.status(404).json({ message: 'member not found' });
     }

@@ -8,9 +8,9 @@ const AddressSchema = new Schema({
 })
 
 const MemberSchema = new Schema({
+    _id: { type: Number, required: true, min: 10000000, max: 999999999},
     firstName: { type: String, required: true, minlength: 2, maxlength: 20 },
     lastName: { type: String, required: true, minlength: 2, maxlength: 20 },
-    id: { type: Number, required: true, min: 10000000, max: 999999999},
     address: { type: AddressSchema, required: true },
     dateOfBirth: { type: Date, required: true, max: Date.now() },
     phone: { type: Number, required: true, min: 1000000, max: 999999999 },
