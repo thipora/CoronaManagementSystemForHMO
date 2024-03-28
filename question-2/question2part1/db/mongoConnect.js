@@ -1,15 +1,11 @@
-// import mongoose from 'mongoose';
-
-// main().catch(err => console.log(err));
-
-// async function main() {
-// await mongoose.connect('mongodb+srv://tz0556776105:5ZpRdMRIdy40jepC@cluster.l47zh4d.mongodb.net/koronaHMO');
-//   console.log("mongos conect");
-// }
-
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const dbURI = 'mongodb+srv://tz0556776105:5ZpRdMRIdy40jepC@cluster.l47zh4d.mongodb.net/koronaHMO';
+const USER=process.env.USER;
+const PASSWORD=process.env.PASSWORD;
+
+const dbURI = `mongodb+srv://${USER}:${PASSWORD}@cluster.l47zh4d.mongodb.net/koronaHMO`;
 
 async function connectToDatabase() {
     try {
@@ -30,4 +26,3 @@ async function disconnectFromDatabase() {
 }
 
 export {connectToDatabase, disconnectFromDatabase}
-

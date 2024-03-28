@@ -1,9 +1,7 @@
 import { connectToDatabase, disconnectFromDatabase } from './db/mongoConnect.js';
-import membersRoutes from "./routes/membersRoutes.js";
-import vaccinationsRoutes from "./routes/vaccinationsRoutes.js";
-import coronaPatientsRoutes from "./routes/coronaPatientsRoutes.js";
-// import "./db/mongoConnect.js";
-
+import routers from "./routes/routers.js";
+import dotenv from 'dotenv';
+dotenv.config();
 import express from "express";
 
 const app = express();
@@ -12,15 +10,13 @@ app.use(express.json());
 import cors from 'cors';
 app.use(cors());
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 connectToDatabase();
 
-app.use("/members", membersRoutes)
-app.use("/vaccinations", vaccinationsRoutes)
-app.use("/coronaPatients", coronaPatientsRoutes)
+app.use("/koronaHMO", routers);
 
-app.use(/^\/?$/, function (req, res) {
+app.use(/^\/koronaHMO?$/, function (req, res) {
   res.send("Hello and welcome to the Corona Management System for the Health Insurance Fund");
 });
 

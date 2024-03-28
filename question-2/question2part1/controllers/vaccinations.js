@@ -13,7 +13,6 @@ const createVaccination = async (req, res) => {
 };
 
 
-
 const findVaccinationById = async (req, res) => {
   const memberId = req.params.id;
   try {
@@ -26,7 +25,6 @@ const findVaccinationById = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
 
 
 const findAllVaccinations = async (req, res) => {
