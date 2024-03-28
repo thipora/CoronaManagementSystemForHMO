@@ -1,3 +1,3 @@
-# CoronaManagementSystemForHMO
+# HADASIM
 מערכת לניהול נתונים
 j
