@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Corona Management System for Health Insurance Fund
 
 ## Overview
@@ -46,4 +44,3 @@ For example, to interact with corona patient data:
 - Fetching a Corona Patient by ID: Send a GET request to `/koronaHMO/coronaPatients/:id` where `:id` is the ID of the corona patient.
 
 By following these instructions, you should be able to install, set up, and run the Corona Management System for the Health Insurance Fund successfully. If you encounter any issues or have further questions, please refer to the documentation or reach out for assistance.
->>>>>>> b1ca66c1915211cf351ebdec56d94cc2bcb19947
