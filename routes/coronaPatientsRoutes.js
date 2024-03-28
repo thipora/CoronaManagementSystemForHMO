@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/", findAllCoronaPatients);
 
 
-router.get("/:coronaPatientId", findCoronaPatientsById);
+router.get("/:id", findCoronaPatientsById);
 
 router.post("/", createCoronaPatient);
 

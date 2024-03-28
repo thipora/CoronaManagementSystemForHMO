@@ -3,9 +3,7 @@ import Vaccination from'../models/vaccinationModel.js';
 const createVaccination = async (req, res) => {
   try{
     const vaccination = new Vaccination({
-        vaccineDate: req.body.vaccineDate,
-        manufacturer: req.body.manufacturer,
-        memberId: req.body.memberId
+        ...req.body,
     });
     const savedVaccination = await vaccination.save();
     res.json(savedVaccination);

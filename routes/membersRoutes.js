@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/", findAllMember);
 
-router.get("/:memberId", findMemberById);
+router.get("/:id", findMemberById);
 
 router.post("/", createMember);
 

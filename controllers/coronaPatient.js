@@ -4,9 +4,7 @@ import coronaPatientModel from '../models/coronaPatientModel.js';
 const createCoronaPatient = async (req, res) => {
   try{
     const coronaPatient = new coronaPatientModel({
-        positiveTestDate: req.body.positiveTestDate,
-        recoveryDate: req.body.recoveryDate,
-        memberId: req.body.memberId
+      ...req.body,
     });
     const savedCoronaPatient = await coronaPatient.save();
     res.json(savedCoronaPatient);

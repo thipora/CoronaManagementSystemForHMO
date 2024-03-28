@@ -3,13 +3,7 @@ import memberModel from'../models/memberModel.js';
 const createMember = async (req, res) => {
   try{
     const member = new memberModel({
-      _id: req.body._id,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      address: req.body.address,
-      dateOfBirth: req.body.dateOfBirth,
-      phone: req.body.phone,
-      mobile: req.body.mobile
+      ...req.body,
     });
     const savedMember = await member.save();
     res.json(savedMember);
@@ -19,7 +13,7 @@ const createMember = async (req, res) => {
 };
 
 const findMemberById = async (req, res) => {
-  const memberId = req.params.memberId;
+  const memberId = req.params.id;
   try {
     const member = await memberModel.find({_id: memberId});
     if (!member) {

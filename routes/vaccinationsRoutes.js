@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/", findAllVaccinations);
 
 
-router.get("/:memberId", findVaccinationById);
+router.get("/:id", findVaccinationById);
 
 router.post("/", createVaccination);
 
