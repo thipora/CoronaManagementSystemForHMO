@@ -15,8 +15,8 @@ const createMember = async (req, res) => {
 const findMemberById = async (req, res) => {
   const memberId = req.params.id;
   try {
-    const member = await memberModel.find({_id: memberId});
-    if (!member) {
+    const member = await memberModel.findById( memberId );
+    if (member == undefined) {
       return res.status(404).json({ message: 'member not found' });
     }
     res.json(member);

@@ -20,6 +20,14 @@ app.use("/members", membersRoutes)
 app.use("/vaccinations", vaccinationsRoutes)
 app.use("/coronaPatients", coronaPatientsRoutes)
 
+app.use(/^\/?$/, function (req, res) {
+  res.send("Hello and welcome to the Corona Management System for the Health Insurance Fund");
+});
+
+app.get("*", function (req, res) {
+  res.send("ERROR");
+});
+
 
 app.listen(PORT, async () => {
   console.log(`server up on port ${PORT}`);

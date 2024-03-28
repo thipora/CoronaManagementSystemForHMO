@@ -15,10 +15,10 @@ const createVaccination = async (req, res) => {
 
 
 const findVaccinationById = async (req, res) => {
-  const memberId = req.params.memberId;
+  const memberId = req.params.id;
   try {
     const vaccination = await Vaccination.find({memberId: memberId});
-    if (!vaccination) {
+    if (vaccination == 0) {
       return res.status(404).json({ message: 'vaccination not found' });
     }
     res.json(vaccination);

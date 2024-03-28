@@ -23,10 +23,10 @@ const findAllCoronaPatients = async (req, res) => {
 };
 
 const findCoronaPatientsById = async (req, res) => {
-  const coronaPatientId = req.params.coronaPatientId;
+  const coronaPatientId = req.params.id;
   try {
     const coronaPatient = await coronaPatientModel.find({memberId: coronaPatientId});
-    if (!coronaPatient) {
+    if (coronaPatient == 0) {
       return res.status(404).json({ message: 'coronaPatient not found' });
     }
     res.json(coronaPatient);
